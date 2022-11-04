@@ -11,6 +11,12 @@ android {
         applicationId "com.example.cquant"
         minSdk 25
         targetSdk 32
+
+        //Added for Unity app
+        ndk {
+            abiFilters "armeabi-v7a"
+        }
+
         versionCode 1
         versionName "1.0"
 
@@ -43,4 +49,9 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.google.maps.android:android-maps-utils:0.5+'
+
+    //Added for Unity app
+    implementation project(':unityLibrary')
+    implementation fileTree(dir: project(':unityLibrary').getProjectDir().toString()+('\\libs'),include: ['*.jar'])
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }

@@ -5,12 +5,23 @@ pluginManagement {
         mavenCentral()
     }
 }
+//Added for Unity app
+include ':unityLibrary'
+project(':unityLibrary').projectDir= new File('\\unityPlugin\\unityLibrary')
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
         google()
         mavenCentral()
+
+        //Added for Unity app
+        flatDir {
+            dirs"${project(':unityLibrary').projectDir}/libs"
+        }
     }
 }
 rootProject.name = "CQuant"
 include ':app'
+
+
